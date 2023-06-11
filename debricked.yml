@@ -1,5 +1,7 @@
 name: Debricked scan
 
+on: [push]
+
 jobs:
   test:
     runs-on: ubuntu-latest
