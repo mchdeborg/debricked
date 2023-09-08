@@ -9,9 +9,11 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+      - script: echo ${{ parameters.DEBRICKED_TOKEN }}
+        displayName: Verify token
       - script: |
           curl -L https://github.com/debricked/cli/releases/latest/download/cli_linux_x86_64.tar.gz | tar -xz debricked
           ./debricked scan
         displayName: Debricked scan
         env:
-          DEBRICKED_TOKEN: $(DEBRICKED_TOKEN)
+          DEBRICKED_TOKEN: ${{ parameters.DEBRICKED_TOKEN }}
